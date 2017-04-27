@@ -4,5 +4,9 @@
 <p>{{ miVariable }}</p>
 <hr>
 <h1>Usuarios</h1>
-
+<div class="votation">
+  <app-user></app-user>
+</div>
+<div class="usuariosPpal">
 <app-user-box *ngFor="let usuario_info of usuarios" [usuario]="usuario_info"></app-user-box>
+</div>

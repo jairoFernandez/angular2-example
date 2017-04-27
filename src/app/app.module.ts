@@ -6,14 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NuevoComponent } from './features/nuevo/nuevo.component';
 import { UserBoxComponent } from './features/user-box/user-box.component';
-import { UserComponent } from './features/user/user.component';
+import { VotationUserComponent } from './features/user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NuevoComponent,
     UserBoxComponent,
-    UserComponent
+    VotationUserComponent
   ],
   imports: [
     BrowserModule,

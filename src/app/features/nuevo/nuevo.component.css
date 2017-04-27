@@ -1,0 +1,12 @@
+.usuariosPpal{
+    width: 70%;
+    padding: 50px;
+    display: inline-block;
+}
+
+.votation{
+    width: 15%;
+    height: 150px;
+    border: 1px solid black;
+    vertical-align: text-top;
+}

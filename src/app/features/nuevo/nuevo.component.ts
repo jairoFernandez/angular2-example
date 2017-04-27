@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './../../models/user.interface';
 import { UserBoxComponent } from '../user-box/user-box.component';
+import { UserService } from '../../services/user.service';
+import { VotationUserComponent } from '../user/user.component';
 
 const USUARIOS: User[] = [
   {
@@ -29,7 +31,8 @@ const USUARIOS: User[] = [
 @Component({
   selector: 'app-nuevo',
   templateUrl: './nuevo.component.html',
-  styleUrls: ['./nuevo.component.css']
+  styleUrls: ['./nuevo.component.css'],
+  providers: [UserService]
 })
 export class NuevoComponent implements OnInit {
   

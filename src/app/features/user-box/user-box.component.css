@@ -4,3 +4,15 @@
     border: 10px solid black;
     padding: 5px;
 }
+
+.button{
+    display: inline-block;
+    width: 300px;
+    background-color: cadetblue;
+    color: white;
+    height: 50px;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}

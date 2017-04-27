@@ -6,12 +6,15 @@ import { UserService } from 'app/services/user.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class VotationUserComponent implements OnInit {
   users: any;
+  votation: any;
+
   constructor(private UserService : UserService) { }
 
   ngOnInit() {
     this.users = this.UserService.getUsers();
+    this.votation = this.UserService.getVotation();
   }
 
 }
