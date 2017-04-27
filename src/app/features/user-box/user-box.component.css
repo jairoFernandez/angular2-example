@@ -1,0 +1,6 @@
+.usuario{
+    display: inline-block;
+    margin: 10px;
+    border: 10px solid black;
+    padding: 5px;
+}
