@@ -3,7 +3,7 @@
   <p>Password: {{ usuario.password }} </p>
   <p>Usuario: {{ usuario.username }} </p>
   <p>Edad: {{ usuario.age }} </p>
-  <img [src]="usuario.urlPhoto" width="300">
+  <img [src]="usuario.urlPhoto" width="300" (click)="goToDetail(usuario)">
   <hr>
-  <button class="button">Votar</button>
+  <button class="button" (click)="GuardarVotacion(usuario)">Votar</button>
 </div>

@@ -1,6 +1,11 @@
 <div>
   <h2>Votaciones</h2>
   <div class="votation">
-  {{ votation | json}}
+   
+      <div *ngFor="let key of keys()">
+         Usuario: {{users[key].name}} ===>
+         Votación:  {{users[key].quantity}} <br>
+      </div>
+  
   </div>
 </div>

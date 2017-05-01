@@ -1,0 +1,16 @@
+<p>formulario</p>
+<form (ngSubmit)="login()" #loginForm="ngForm">
+  <div *ngIf="error" class="error">
+    <hr>
+      {{ error }}
+    <hr>
+  </div>
+
+  <label>Usuario</label>
+  <input type="text" required autocomplete="off" [(ngModel)]="user.email" placeholder="Email" name="email">
+
+  <label>Password</label>
+   <input type="password" required [(ngModel)]="user.password" placeholder="Password" name="password">
+
+   <button type="submit">Acceder</button>
+</form>

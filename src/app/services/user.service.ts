@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from 'app/models/user.interface';
+
 @Injectable()
 export class UserService {
   private _users: any;
-  private _votation: { item: {}, total: 0 };
+  private _votation: any = { total: 0 };
 
   constructor() { 
     this._users = {};
@@ -29,9 +30,7 @@ export class UserService {
       }
     }else{
       this._users[user.username].quantity += 1;
-    }
-
-   // this._votation.item += user;
+    }    
     this._votation.total += 1;
   }
 }

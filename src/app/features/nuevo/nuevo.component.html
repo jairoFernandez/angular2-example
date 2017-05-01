@@ -8,5 +8,7 @@
   <app-user></app-user>
 </div>
 <div class="usuariosPpal">
-<app-user-box *ngFor="let usuario_info of usuarios" [usuario]="usuario_info"></app-user-box>
+  <app-user-box *ngFor="let usuario_info of usuarios" 
+      [usuario]="usuario_info" (salida)="ObtenerSalidaComponente($event)">
+  </app-user-box>
 </div>

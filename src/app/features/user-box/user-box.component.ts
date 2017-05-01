@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/user.interface';
+import { UserService } from 'app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-box',
@@ -11,9 +13,25 @@ export class UserBoxComponent implements OnInit {
   @Input()
   usuario: User;
 
-  constructor() { }
+  @Output()
+  salida = new EventEmitter();
+
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  GuardarVotacion(user: User){
+    this.userService.addUsers(user);
+    this.salida.emit(this.usuario);
+  }
+
+  goToDetail(user: User){
+    let link = ['/user', user.username];
+    this.router.navigate(link);
   }
 
 }

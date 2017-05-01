@@ -3,45 +3,43 @@ import { User } from './../../models/user.interface';
 import { UserBoxComponent } from '../user-box/user-box.component';
 import { UserService } from '../../services/user.service';
 import { VotationUserComponent } from '../user/user.component';
+import { ApiService } from '../../services/api/api.service';
+import { AuthService } from 'app/services/auth/auth.service';
 
-const USUARIOS: User[] = [
-  {
-    name: "Pepito Pérez",
-    password: "123456",
-    username: "pepito",
-    age: 30,
-    urlPhoto: "https://s-media-cache-ak0.pinimg.com/736x/ec/b8/67/ecb867283a30f334f40d11de551f5f36.jpg"
-  },
-  {
-    name: "Juan Pérez",
-    password: "q34edasdas",
-    username: "jaunito",
-    age: 25,
-    urlPhoto: "https://s-media-cache-ak0.pinimg.com/736x/28/8b/88/288b885abd2e62dbf99e6b2df9780d52.jpg"
-  },
-  {
-    name: "Mathi Fernández",
-    password: "asdasdaisud9as",
-    username: "mathi",
-    age: 2,
-    urlPhoto: "http://img4.zergnet.com/1642443_300.jpg"
-  }
-];
+import { ApiObservableService } from '../../services/api/api-observable.service';
 
 @Component({
   selector: 'app-nuevo',
   templateUrl: './nuevo.component.html',
   styleUrls: ['./nuevo.component.css'],
-  providers: [UserService]
+  providers: [ApiService, UserService, AuthService, ApiObservableService]
 })
 export class NuevoComponent implements OnInit {
   
   miVariable: string = "Texto de mi variable!!";
-  usuarios: User[] = USUARIOS;
+  usuarios: User[] ;
 
-  constructor() { }
+  constructor(
+    private apiservice: ApiService, 
+    private auth: AuthService, 
+    private apiobservable: ApiObservableService) { }
 
   ngOnInit() {
+    this.auth.check();
+    this.getUSers();
   }
 
+  getUSers(){
+   /* this.apiservice.getUsers().then(
+      usuarios => this.usuarios = usuarios
+    );*/
+    this.apiobservable.getUsers().subscribe(
+      data => { this.usuarios = data },
+      error => console.log(error)
+    );
+  }
+
+  ObtenerSalidaComponente(event){
+    console.log("Recibido " + JSON.stringify(event));
+  }
 }

@@ -16,5 +16,8 @@ export class VotationUserComponent implements OnInit {
     this.users = this.UserService.getUsers();
     this.votation = this.UserService.getVotation();
   }
-
+  
+  keys(){
+    return Object.keys(this.users);
+  }
 }
